@@ -1,12 +1,13 @@
 import React, { Component , PropTypes } from 'react'
 import AddContact from './AddContact.js'
 import {connect} from 'react-redux'
-import { addContact } from '../actions/ActionsCreator.js';
+import { addContact, deleteContact, editContact } from '../actions/ActionsCreator.js';
+import ListContact from './ListContact'
 
 class App extends Component {
 
     render () {
-        const { dispatch } = this.props
+        const { dispatch, contacts } = this.props
         return(
             <main>
                 <AddContact
@@ -14,10 +15,27 @@ class App extends Component {
                         text => dispatch(addContact(text))
                     }
                 ></AddContact>
+
+                <ListContact    
+                        contacts = { contacts } 
+                        deleteItemAct = { index => {
+                            dispatch(deleteContact(index))
+                        }}
+                        editItemAct = { (index, contact) => {
+                            dispatch(editContact(index, contact))
+                        }}
+                                
+                />
             </main>
         )
     }
 }
 
-App = connect()(App)
+function list(state) {
+    return {
+        contacts: state
+    }
+}
+
+App = connect(list)(App)
 export default App

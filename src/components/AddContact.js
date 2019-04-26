@@ -7,7 +7,7 @@ class AddContact extends Component{
 
         this.props.onAddContact(name)
 
-        name = ''
+        this.refs.name.value = '';
     }
 
     render (){

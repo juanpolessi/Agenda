@@ -36,6 +36,7 @@
         margin-left: 5px;
         font-size: 18px;
         font-weight: bold;
+        cursor: default;
     }
 
     .headerNewContact > .btnCloseModal {
@@ -50,12 +51,12 @@
         }
 
 .formNewContact {
-    width: 100%;
     height: calc(100% - 80px);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     border-bottom: 1px solid #d2d2d2;
+    padding: 0 10px;
 }
 
     .formNewContact > .row {
@@ -94,6 +95,7 @@
         font-weight: bold;
         margin: 0 5px 0 0;
         border:0px;
+        cursor: pointer;
     }
 
         .footerNewContact > .btn:focus {

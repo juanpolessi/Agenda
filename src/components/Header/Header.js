@@ -1,25 +1,24 @@
 import React, { Component } from 'react'
-import AddContact from '../Contact/AddContact/AddContact'
+import Search from './Search/Search'
 
-import './Menu.css'
+import './Header.css'
 
-class Menu extends Component {
+class Header extends Component {
     
     render(){
         const { dispatch } = this.props
 
         return(
-            <div id="menu" className="menu">
+            <div id="header" className="header">
                 <div className="divLogo">
                     <i class="fas fa-user-circle"></i>
                     <span>Contacts</span>
                 </div>
-                <div className="menuButtons">
-                    <AddContact />
-                </div>
+            
+                <Search />
             </div>
         )
     }    
 }
 
-export default Menu
+export default Header

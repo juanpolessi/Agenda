@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Search from './../Search/Search'
 import ListContact from './../Contact/ListContact'
+import Menu from './Menu/Menu'
 
 import './Content.css'
 
@@ -9,7 +9,7 @@ class Content extends Component {
     render(){
         return(
             <div className="content">
-                <Search />
+                <Menu />
                 <ListContact />
             </div>
         )

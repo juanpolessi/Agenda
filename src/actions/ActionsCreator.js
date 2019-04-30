@@ -1,11 +1,19 @@
-import { ADD_CONTACT, DELETE_CONTACT, EDIT_CONTACT } from './../constants/ActionsType'
+import { SEARCH_CONTACT, ADD_CONTACT, DELETE_CONTACT, EDIT_CONTACT } from './../constants/ActionsType'
 
 let id = 0;
 
-export function addContact(name) {
+export function searchContact(contact) {
+    return {
+        type: SEARCH_CONTACT,
+        contact
+    }
+}
+
+export function addContact(name, phone) {
     return {
         type: ADD_CONTACT,
         name,
+        phone,
         id: id++
     }
 }

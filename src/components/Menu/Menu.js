@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import AddContact from './../../Contact/AddContact/AddContact'
+import AddContact from '../Contact/AddContact/AddContact'
 
 import './Menu.css'
 

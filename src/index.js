@@ -8,7 +8,7 @@ import './index.css';
 
 let store = createStore(Reducers)
 
-let fnRender = () =>{
+let fnRender = () => {
     ReactDOM.render(
         <Provider store = { store } >
             <App />

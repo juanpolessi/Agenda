@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import NewContactModal from './NewContactModal/NewContactModal'
-import { conect } from 'react-redux'
+import { connect } from 'react-redux'
 import { addContact } from './../../../actions/ActionsCreator'
 
 import './AddContact.css'
@@ -20,12 +20,13 @@ class AddContact extends Component {
     }
 
     render (){
+        const { dispatch } = this.props
         const { isOpen } = this.state
 
         return (
             <div>
                 <button type="button" className="btnAddContact" onClick={() => this.toogleContactModal()}>
-                    <i class="fas fa-user-plus"></i>
+                    <i className="fas fa-user-plus"></i>
                     <span>New Contact</span>
                 </button>
                 {
@@ -34,7 +35,10 @@ class AddContact extends Component {
                     :
                     <NewContactModal
                         show= { this.state.isOpen }
-                        onClose= { this.toogleContactModal }>
+                        onClose= { this.toogleContactModal }
+                        onAddContact = {
+                            (name, phone) => dispatch(addContact(name, phone))
+                        }>
                     </NewContactModal>
                 }
             </div>
@@ -42,4 +46,5 @@ class AddContact extends Component {
     }    
 }
 
+AddContact = connect()(AddContact)
 export default AddContact

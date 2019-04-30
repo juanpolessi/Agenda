@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Search from './Search/Search'
+import { connect } from 'react-redux'
+import { searchContact } from './../../actions/ActionsCreator.js';
 
 import './Header.css'
 
@@ -11,14 +13,19 @@ class Header extends Component {
         return(
             <div id="header" className="header">
                 <div className="divLogo">
-                    <i class="fas fa-user-circle"></i>
+                    <i className="fas fa-user-circle"></i>
                     <span>Contacts</span>
                 </div>
             
-                <Search />
+                <Search                     
+                    onSearchContact = { contacts => {
+                        dispatch(searchContact(contacts))
+                    }}
+                />
             </div>
         )
     }    
 }
 
+Header = connect()(Header)
 export default Header

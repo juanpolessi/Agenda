@@ -1,35 +1,42 @@
 import { SEARCH_CONTACT, ADD_CONTACT, DELETE_CONTACT, EDIT_CONTACT } from './../constants/ActionsType'
 
-function contact(state = [], action) {
+import Contacts from './../helpers/contacts'
+
+const initialState = Contacts
+
+function contact(state = initialState, action) {
     switch (action.type) {
         case SEARCH_CONTACT:
             let contact =   action.contact.length === 0
-                            ? state
-                            : state.filter(contact => contact.name.toUpperCase().indexOf(action.contact.toUpperCase()) !== -1)
+                            ? initialState
+                            : initialState.filter(contact => contact.name.toUpperCase().indexOf(action.contact.toUpperCase()) !== -1)
 
             return contact
 
         case ADD_CONTACT:
-        let obj = [
-            ...state,
-            {
-                name: action.name,
-                phone: action.phone,
-                id  : action.id
-            }
-        ]
-            return obj
+            return [
+                ...state,
+                {
+                    id  : state.length + 1,
+                    name: action.name,
+                    phone: action.phone,
+                }
+            ]         
 
         case DELETE_CONTACT:
             return [
-                state.slice(0, action.index )
+                ...state.filter( obj => obj.id !== action.index )
             ]
 
         case EDIT_CONTACT:
-            return [
-                state.slice(0, action.index),
-                Object.assign({}, { name: 'Juan' })
-            ]
+            return state.map((todo, index) => {
+                if (index === action.index -1 ) {
+                    todo.name = action.name
+                    todo.phone = action.phone
+                }
+                return todo
+            })
+
         default:
             return state
     }

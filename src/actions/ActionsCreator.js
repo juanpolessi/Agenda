@@ -25,10 +25,11 @@ export function deleteContact(index) {
     }
 }
 
-export function editContact(index, contact) {
+export function editContact(index, name, phone) {
     return{
         type: EDIT_CONTACT,
         index,
-        contact
+        name,
+        phone
     }
 }

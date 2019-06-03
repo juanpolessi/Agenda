@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NewContactModal from './NewContactModal/NewContactModal'
+import NewContactModal from './ContactModal/ContactModal'
 import { connect } from 'react-redux'
 import { addContact } from './../../../actions/ActionsCreator'
 

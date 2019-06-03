@@ -1,19 +1,44 @@
 import React, { Component } from 'react'
 
-import './NewContactModal.css'
+import './ContactModal.css'
 
-class NewContactModal extends Component {
+class ContactModal extends Component {
 
     handleClick() {
         let name = this.refs.name.value || '';
         let phone = this.refs.phone.value || '';
-
-        this.props.onAddContact(name, phone);
+        
+        if(this.props.onAddContact !== undefined)
+            this.props.onAddContact(name, phone);
+        else
+            this.props.onEditContact(this.props.contact.id, name, phone)
 
         this.props.onClose();
 
         this.refs.name.value = '';
         this.refs.phone.value = '';
+    }
+
+    handleNameLoad(value) {
+        if(value !== undefined)
+            this.refs.name.value = value
+        else 
+            this.refs.name.value = ""
+    }
+
+    handlePhoneLoad(value) {
+        if(value !== undefined)
+            this.refs.phone.value = value
+        else 
+            this.refs.phone.value = ""
+    }
+
+    componentDidMount(){
+        if(this.props.contact !== undefined)
+            this.handleNameLoad(this.props.contact.name);
+        
+        if(this.props.contact !== undefined)
+            this.handlePhoneLoad(this.props.contact.phone);
     }
 
     render() {
@@ -51,4 +76,4 @@ class NewContactModal extends Component {
     }
 }
 
-export default NewContactModal
+export default ContactModal

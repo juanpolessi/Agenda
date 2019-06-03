@@ -4,7 +4,12 @@
     border: 1px solid #5f5fc3;
     border-radius: 15px;
     margin: 10px 5px 5px 10px;
+    display: inline-block;
 }
+
+    .itemContatc:hover {
+        background-color: #e3e3f3;
+    }
 
     .itemContatc > .row {
         position: relative;
@@ -28,6 +33,12 @@
         justify-content: center;
         align-items: center;
     }
+
+        .itemContatc > .row > .circleLetter > label {
+            font-weight: bold;
+            font-size: 20px;
+            color: #fff;
+        }
 
     .itemContatc > .row > i {
         color: #999;

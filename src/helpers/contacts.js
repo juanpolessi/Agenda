@@ -6,12 +6,12 @@ export default [
     },
     {
         "id": 2,
-        "name": "Juan Polessi Ruiz",
+        "name": "Maite Vitória",
         "phone": "11 966556092"
     },
     {
         "id": 3,
-        "name": "Juan Polessi Ruiz",
+        "name": "Valquiria AP.",
         "phone": "11 966556092"
     },
 ]
